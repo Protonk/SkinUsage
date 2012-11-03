@@ -14,4 +14,7 @@ UserNum.By.Skin <- ddply(.data = SkinUsage,
 
 #And *now* we play the GRAPHING game. Also the library-loading game.
 library(ggplot2)
-qplot(UserNum.by.Skin$skin, UserNum.by.Skin$sum)
+# scales gives you some cool other options.
+library(scales)
+
+qplot(data = UserNum.by.Skin, x = skin, y = sum) + scale_y_continuous(labels = comma)
